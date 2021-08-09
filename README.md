@@ -1,2 +1,2 @@
-#Black Jack Game
+#Black Jack Game  
 ##Vanilla JavaScript Project
