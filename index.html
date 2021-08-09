@@ -11,6 +11,12 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -23,21 +29,26 @@
     <h1>Black Jack</h1>
     <h2>Let's Play!</h2>
 
-    <p id="firstCard-el">FIRST CARD:</p>
-    <p id="secondCard-el">SECOND CARD:</p>
-    <p id="drawCard-el">DRAW CARD:</p>
+    <section>
+      <p id="firstCard-el">FIRST CARD:</p>
+      <p id="secondCard-el">SECOND CARD:</p>
+      <p id="drawCard-el">DRAW CARD:</p>
+    </section>
 
-    <h2 id="currentScore-el">YOUR SCORE:</h2>
-    <h2 id="dealerScore-el">DEALERS SCORE:</h2>
+    <section>
+      <h2 id="currentScore-el" class="scores">YOUR SCORE:</h2>
+      <h2 id="dealerScore-el" class="scores">DEALERS SCORE:</h2>
+      <h2 id="result-el" class="scores"></h2>
+    </section>
 
     <!-- <p id="currentScore-el"></p> -->
 
-    <h2 id="result-el"></h2>
-
-    <button id="deal-btn">DEAL</button>
-    <button id="hit-btn">HIT</button>
-    <button id="stay-btn">STAY</button>
-    <button id="new-btn">NEW GAME</button>
+    <section>
+      <button id="deal-btn" class="deal">DEAL</button>
+      <button id="hit-btn" class="hit">HIT</button>
+      <button id="stay-btn" class="stay">STAY</button>
+      <button id="new-btn" class="new">NEW GAME</button>
+    </section>
 
     <script src="script.js" async defer></script>
   </body>
