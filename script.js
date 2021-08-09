@@ -1,14 +1,19 @@
 let firstCard = document.getElementById("firstCard-el");
 let secondCard = document.getElementById("secondCard-el");
+let firstCardVal = 0;
+let secondCardVal = 0;
+
 let drawCard = document.getElementById("drawCard-el");
 let resultEl = document.getElementById("result-el");
 let currScoreEl = document.getElementById("currentScore-el");
-let dealerScoreEl = document.getElementById("dealerScore-el");
 let currScore;
+let dealerScoreEl = document.getElementById("dealerScore-el");
+
 let dealButton = document.getElementById("deal-btn");
 let hitButton = document.getElementById("hit-btn");
 let stayButton = document.getElementById("stay-btn");
 let newButton = document.getElementById("new-btn");
+
 let allCards = [];
 let totalScore = 0;
 let dealerTotal = 0;
@@ -57,28 +62,52 @@ function hit() {
 
   if (totalScore > 21) {
     resultEl.textContent = "YOU BUST!";
+    resultEl.classList.add("lose");
   }
 }
 
 function stay() {
-  getDealersScore();
-}
+  let dealerTotal;
+  dealerFirstCard = getRandomNum();
+  dealerSecondCard = getRandomNum();
 
-function getDealersScore() {
-  firstCard = getRandomNum();
-  secondCard = getRandomNum();
+  dealerTotal = dealerFirstCard + dealerSecondCard;
+  console.log(dealerTotal);
 
-  dealerTotal = firstCard + secondCard;
+  // attempting to have the dealer draw, if dealer total is less than 15
+  // if (dealerTotal < 15) {
+  //   dealerDraw = getRandomNum();
+  //   dealerTotal + dealerDraw;
+  // }
 
   if (totalScore < 22 && totalScore > dealerTotal) {
-    console.log("YOU WIN!");
+    resultEl.textContent = "YOU WIN!";
+    resultEl.classList.add("win");
   } else {
-    console.log("YOU LOSE!");
+    resultEl.textContent = "YOU LOSE!";
+    resultEl.classList.add("lose");
   }
 
   dealerScoreEl.textContent = `DEALER SCORE: ${dealerTotal}`;
 }
 
+function newGame() {
+  // reset all cards, scores
+  firstCardVal = " ";
+  secondCardVal = " ";
+  dealerTotal = " ";
+  currScore = " ";
+  allCards = [];
+
+  firstCard.textContent = `FIRST CARD: `;
+  secondCard.textContent = `SECOND CARD: `;
+  drawCard.textContent = `DRAW CARD: `;
+  dealerScoreEl.textContent = `DEALER SCORE: ${dealerTotal}`;
+  currScoreEl.textContent = `CURRENT SCORE: ${currScore}`;
+  resultEl.textContent = " ";
+}
+
 dealButton.addEventListener("click", deal);
 hitButton.addEventListener("click", hit);
 stayButton.addEventListener("click", stay);
+newButton.addEventListener("click", newGame);
